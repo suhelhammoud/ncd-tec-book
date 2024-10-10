@@ -1,0 +1,118 @@
+Traceback (most recent call last):
+  File "/home/suhel/workspace/ncd/ncd-tec-book/.venv/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/suhel/workspace/ncd/ncd-tec-book/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/suhel/workspace/ncd/ncd-tec-book/.venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/suhel/workspace/ncd/ncd-tec-book/.venv/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/suhel/workspace/ncd/ncd-tec-book/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/suhel/workspace/ncd/ncd-tec-book/.venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+stack = Stack()
+
+# Create text to display the stack
+stack_display = widgets.Text(
+    value="",
+    placeholder="Stack state",
+    description="Stack:",
+    disabled=True
+)
+# Create text area to display result of stack operation
+stack_log = widgets.Textarea(
+    value="",
+    placeholder="Operation result",
+    description="Output:",
+    layout=widgets.Layout(width="500px", height="100px"),
+    disabled=True
+)
+
+# Function to update the stack display
+def update_display():
+    stack_display.value = f"{stack.stack[::-1]}"
+
+# Button to push item
+push_input = widgets.Text(
+    value='',
+    placeholder='Enter item',
+    description='Item:',
+    disabled=False
+)
+
+def push_item(b):
+    if push_input.value:
+        value = push_input.value      
+        stack.push(value)
+        push_input.value = ''
+        stack_log.value += f"\nPushed: {value}"
+
+        update_display()
+
+push_button = widgets.Button(
+    description="Push",
+    button_style='success',
+)
+
+push_button.on_click(push_item)
+
+# Button to pop item
+def pop_item(b):
+    popped = stack.pop()
+    stack_log.value += f"\nPopped: {popped}"
+    update_display()
+
+pop_button = widgets.Button(
+    description="Pop",
+    button_style='danger',
+)
+
+pop_button.on_click(pop_item)
+
+# Button to peek item
+def peek_item(b):
+    top = stack.peek()
+    stack_log.value += f"\nPeeked: {top}"
+
+peek_button = widgets.Button(
+    description="Peek",
+    button_style='info',
+)
+
+peek_button.on_click(peek_item)
+
+# Layout the buttons and stack display
+buttons = widgets.HBox([push_button, pop_button, peek_button])
+display(push_input, buttons, stack_display, stack_log)
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[3], line 4[0m
+[1;32m      1[0m stack [38;5;241m=[39m Stack()
+[1;32m      3[0m [38;5;66;03m# Create text to display the stack[39;00m
+[0;32m----> 4[0m stack_display [38;5;241m=[39m [43mwidgets[49m[38;5;241m.[39mText(
+[1;32m      5[0m     value[38;5;241m=[39m[38;5;124m"[39m[38;5;124m"[39m,
+[1;32m      6[0m     placeholder[38;5;241m=[39m[38;5;124m"[39m[38;5;124mStack state[39m[38;5;124m"[39m,
+[1;32m      7[0m     description[38;5;241m=[39m[38;5;124m"[39m[38;5;124mStack:[39m[38;5;124m"[39m,
+[1;32m      8[0m     disabled[38;5;241m=[39m[38;5;28;01mTrue[39;00m
+[1;32m      9[0m )
+[1;32m     10[0m [38;5;66;03m# Create text area to display result of stack operation[39;00m
+[1;32m     11[0m stack_log [38;5;241m=[39m widgets[38;5;241m.[39mTextarea(
+[1;32m     12[0m     value[38;5;241m=[39m[38;5;124m"[39m[38;5;124m"[39m,
+[1;32m     13[0m     placeholder[38;5;241m=[39m[38;5;124m"[39m[38;5;124mOperation result[39m[38;5;124m"[39m,
+[0;32m   (...)[0m
+[1;32m     16[0m     disabled[38;5;241m=[39m[38;5;28;01mTrue[39;00m
+[1;32m     17[0m )
+
+[0;31mNameError[0m: name 'widgets' is not defined
+
