@@ -101,6 +101,8 @@ Thumbs.db
 
 # Content generated during notebook execution
 
+# build packages
+dist/*
 
 # more
 */__pycache__/*
