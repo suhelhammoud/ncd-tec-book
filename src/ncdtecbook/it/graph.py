@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 
-def display_graph5(graph):
+
+def display_graph(graph):
     G = nx.DiGraph() if graph.is_directed else nx.Graph()
 
     # Add nodes and edges
@@ -23,3 +24,7 @@ def display_graph5(graph):
 
 def p():
     print('version 01')
+
+
+if __name__ == '__main__':
+    display_graph([])

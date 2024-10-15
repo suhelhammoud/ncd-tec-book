@@ -1,1 +1,1 @@
-scripts/pkg-build.sh
+twine upload dist/*
