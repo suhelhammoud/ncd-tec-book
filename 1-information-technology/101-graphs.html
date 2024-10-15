@@ -451,7 +451,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="graphs-in-algorithms">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ncdtecbook
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ncdtecbook
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading ncdtecbook-0.0.1.0-py3-none-any.whl.metadata (967 bytes)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading ncdtecbook-0.0.1.0-py3-none-any.whl (6.1 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: ncdtecbook
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed ncdtecbook-0.0.1.0
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="graphs-in-algorithms">
 <h1>Graphs in Algorithms<a class="headerlink" href="#graphs-in-algorithms" title="Link to this heading">#</a></h1>
 <p>A <strong>graph</strong> is a data structure consisting of a set of vertices (nodes) and edges (connections between nodes). Graphs are widely used in various fields such as computer science, transportation networks, and social media.</p>
 <p><strong>Types of Graphs:</strong></p>
@@ -575,12 +599,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	   C  D  E  B  A
-	C [0, 0, 8, 2, 0]
-	D [0, 0, 10, 1, 5]
-	E [8, 10, 0, 0, 0]
-	B [2, 1, 0, 0, 4]
-	A [0, 5, 0, 4, 0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	   B  C  D  A  E
+	B [0, 2, 1, 4, 0]
+	C [2, 0, 0, 0, 8]
+	D [1, 0, 0, 5, 10]
+	A [4, 0, 5, 0, 0]
+	E [0, 8, 10, 0, 0]
 </pre></div>
 </div>
 </div>
@@ -618,7 +642,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4eff46abdfda963e267695c5e18c63560d69fcb84df9f22925adc5e8ed2c5b8c.png" src="../_images/4eff46abdfda963e267695c5e18c63560d69fcb84df9f22925adc5e8ed2c5b8c.png" />
+<img alt="../_images/3e28715ca113606b4e69cb64217bf078b10bd0b542547eec7c4b93aa7eff83a1.png" src="../_images/3e28715ca113606b4e69cb64217bf078b10bd0b542547eec7c4b93aa7eff83a1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -630,7 +654,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display_graph_plot</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;display_graph_plot&#39; is not defined

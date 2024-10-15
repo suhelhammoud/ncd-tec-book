@@ -24,7 +24,7 @@ display_graph_plot(gm)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[9], line 1[0m
+Cell [0;32mIn[10], line 1[0m
 [0;32m----> 1[0m [43mdisplay_graph_plot[49m(gm)
 
 [0;31mNameError[0m: name 'display_graph_plot' is not defined
