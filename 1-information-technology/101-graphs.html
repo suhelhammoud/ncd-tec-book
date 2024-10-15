@@ -57,6 +57,9 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"a9e66fc15f9c4dbba151f330ec8948f7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4f9391e4061e4f1ebf213fdbcea575a7": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "689d0aaca3eb4bc3bcecdfce4a02fa3d": {"model_name": "IntSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "IntSliderView", "behavior": "drag-tap", "continuous_update": false, "description": "Traversal Step:", "description_allow_html": false, "disabled": false, "layout": "IPY_MODEL_a9e66fc15f9c4dbba151f330ec8948f7", "max": 5, "min": 0, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_4f9391e4061e4f1ebf213fdbcea575a7", "tabbable": null, "tooltip": null, "value": 0}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '1-information-technology/101-graphs';</script>
     <link rel="canonical" href="https://www.tomasbeuzen.com/python-programming-for-data-science/1-information-technology/101-graphs.html" />
     <link rel="icon" href="../_static/favicon.png"/>
@@ -475,8 +478,7 @@ document.write(`
 <li><p><strong>Directed Graph (Digraph)</strong>: The edges have a direction.</p></li>
 <li><p><strong>Weighted Graph</strong>: Each edge has a weight associated with it.</p></li>
 </ol>
-<p>more content
-In this tutorial, we will explore graph representations and basic graph traversal algorithms, such as Depth First Search (DFS) and Breadth First Search (BFS).</p>
+<p>In this tutorial, we will explore graph representations and basic graph traversal algorithms, such as Depth First Search (DFS) and Breadth First Search (BFS).</p>
 <section id="graph-representation">
 <h2>Graph Representation<a class="headerlink" href="#graph-representation" title="Link to this heading">#</a></h2>
 <section id="using-adjacency-matrix">
@@ -487,55 +489,41 @@ In this tutorial, we will explore graph representations and basic graph traversa
 <section id="using-adjacency-list">
 <h3>Using Adjacency List<a class="headerlink" href="#using-adjacency-list" title="Link to this heading">#</a></h3>
 <p>using adjacency lists</p>
-<p><img alt="adjacency list" src="../_images/adjacency_list_graph.png" /> ![</p>
+<p><img alt="adjacency list" src="../_images/adjacency_list_graph.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_adj_matrix</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="n">adj_matrix</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-    <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="n">r</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-        <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    
-        <span class="n">adj_matrix</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_directed</span><span class="p">:</span>
-            <span class="n">adj_matrix</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span>  <span class="c1"># Undirected graph</span>
-    <span class="k">return</span> <span class="n">adj_matrix</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of nodes</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ncdtecbook.it.graph</span> <span class="kn">import</span> <span class="n">GraphM</span>
 
-<span class="c1"># Create your own edges</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+<span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
 
-<span class="c1"># Generate the matrix interactively</span>
-<span class="n">adj_matrix</span> <span class="o">=</span> <span class="n">create_adj_matrix</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">edges</span><span class="p">)</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">gl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	   A  D  E  C  B
+	A [0, 0, 0, 0, 4]
+	D [5, 0, 0, 0, 0]
+	E [0, 10, 0, 0, 0]
+	C [0, 0, 8, 0, 0]
+	B [0, 1, 0, 2, 0]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reload_ext</span> autoreload
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is a note</p>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add image in markdown</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GraphM</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">ncdtecbook.it.graph</span> <span class="kn">import</span> <span class="n">_validate_edges</span><span class="p">,</span> <span class="n">_extract_vertices</span>
+
+<span class="k">class</span> <span class="nc">GraphM</span><span class="p">:</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vertices</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span> <span class="o">=</span> <span class="n">GraphM</span><span class="o">.</span><span class="n">_validate_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="k">if</span> <span class="n">vertices</span> <span class="k">else</span> <span class="n">GraphM</span><span class="o">.</span><span class="n">_extract_vertices</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span> <span class="o">=</span> <span class="n">_validate_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="k">if</span> <span class="n">vertices</span> <span class="k">else</span> <span class="n">_extract_vertices</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">is_directed</span><span class="o">=</span> <span class="n">is_directed</span>
 
@@ -546,22 +534,14 @@ In this tutorial, we will explore graph representations and basic graph traversa
         <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
             <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">edge</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">_validate_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="n">r</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-            <span class="n">w</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span>
-            <span class="n">edge</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">result</span>
-    
-    <span class="k">def</span> <span class="nf">_extract_vertices</span><span class="p">(</span><span class="n">edges</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="n">r</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-            <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        
+            <span class="bp">self</span><span class="o">.</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
+
+    <span class="k">def</span> <span class="nf">visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">vertex</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+    
 
     <span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
         <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">vertex1</span><span class="p">)</span>
@@ -580,47 +560,83 @@ In this tutorial, we will explore graph representations and basic graph traversa
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GraphL</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">_validate_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="n">r</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span>
+            <span class="n">edge</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="k">def</span> <span class="nf">_extract_vertices</span><span class="p">(</span><span class="n">edges</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="o">*</span><span class="n">r</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+            <span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vertices</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the graph with a list of vertices and a list of edges.</span>
+<span class="sd">        :param vertices: List of vertices (strings)</span>
+<span class="sd">        :param edges: List of tuples (vertex1, vertex2, weight)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edges</span> <span class="o">=</span> <span class="n">GraphL</span><span class="o">.</span><span class="n">_validate_edges</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="k">if</span> <span class="n">vertices</span> <span class="k">else</span> <span class="n">GraphL</span><span class="o">.</span><span class="n">_extract_vertices</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_directed</span><span class="o">=</span> <span class="n">is_directed</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">adj_list</span> <span class="o">=</span> <span class="p">{</span><span class="n">vertex</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">}</span>  <span class="c1"># empty adjacency list for each vertex</span>
+
+        <span class="c1"># Add edges</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
+            <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">edge</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+    <span class="k">def</span> <span class="nf">visit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">vertex</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+            
+    <span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">adj_list</span><span class="p">[</span><span class="n">vertex1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">vertex2</span><span class="p">,</span> <span class="n">weight</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_directed</span><span class="p">:</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">adj_list</span><span class="p">[</span><span class="n">vertex2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">vertex1</span><span class="p">,</span> <span class="n">weight</span><span class="p">))</span>  <span class="c1"># For undirected graph; remove for directed graph</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">vertex</span><span class="p">,</span> <span class="n">edges</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">adj_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">result</span><span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">vertex</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">edges</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+        
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
-<span class="n">gm</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
-<span class="nb">print</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">GraphL</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">gl</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	   C  E  D  B  A
-	C [0, 8, 0, 2, 0]
-	E [8, 0, 10, 0, 0]
-	D [0, 10, 0, 1, 5]
-	B [2, 0, 1, 0, 4]
-	A [0, 0, 5, 4, 0]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ncdtecbook.it.graph</span> <span class="k">as</span> <span class="nn">g</span>
-<span class="n">g</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__name__&#39;,
- &#39;__doc__&#39;,
- &#39;__package__&#39;,
- &#39;__loader__&#39;,
- &#39;__spec__&#39;,
- &#39;__file__&#39;,
- &#39;__cached__&#39;,
- &#39;__builtins__&#39;,
- &#39;plt&#39;,
- &#39;nx&#39;,
- &#39;display_graph&#39;,
- &#39;p&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A: [(&#39;B&#39;, 4)]
+D: [(&#39;A&#39;, 5)]
+E: [(&#39;D&#39;, 10)]
+C: [(&#39;E&#39;, 8)]
+B: [(&#39;D&#39;, 1), (&#39;C&#39;, 2)]
 </pre></div>
 </div>
 </div>
@@ -628,30 +644,79 @@ In this tutorial, we will explore graph representations and basic graph traversa
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ncdtecbook.it.graph</span> <span class="kn">import</span> <span class="n">display_graph</span>
-
-<span class="n">display_graph</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">gl</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">visited</span><span class="p">)</span>
+<span class="n">display_graph</span><span class="p">(</span><span class="n">gl</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4faf4e7c4e4f63e6a9dc27e229e88096e7ffb2c771baef609d1b9331a065ee87.png" src="../_images/4faf4e7c4e4f63e6a9dc27e229e88096e7ffb2c771baef609d1b9331a065ee87.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;A&#39;, &#39;B&#39;}
+type = GraphL
+</pre></div>
+</div>
+<img alt="../_images/1ee10824fdb24aee7f88d8a01ff8a7d1087498c6881152820ebae4d34cc258be.png" src="../_images/1ee10824fdb24aee7f88d8a01ff8a7d1087498c6881152820ebae4d34cc258be.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_graph_plot</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+<span class="n">gm</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display_graph_plot</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;display_graph_plot&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	   A  D  E  C  B
+	A [0, 0, 0, 0, 4]
+	D [5, 0, 0, 0, 0]
+	E [0, 10, 0, 0, 0]
+	C [0, 0, 8, 0, 0]
+	B [0, 1, 0, 2, 0]
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ncdtecbook.it.graph</span> <span class="k">as</span> <span class="nn">g</span>
+<span class="n">gm</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span>
+<span class="n">gm</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gm</span><span class="o">.</span><span class="n">visited</span><span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">display_graph</span><span class="p">(</span><span class="n">gm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;A&#39;, &#39;B&#39;}
+type = GraphM
+</pre></div>
+</div>
+<img alt="../_images/1ee10824fdb24aee7f88d8a01ff8a7d1087498c6881152820ebae4d34cc258be.png" src="../_images/1ee10824fdb24aee7f88d8a01ff8a7d1087498c6881152820ebae4d34cc258be.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ncdtecbook.it.graph</span> <span class="kn">import</span> <span class="n">example_dfs</span><span class="p">,</span> <span class="n">dfs</span><span class="p">,</span> <span class="n">GraphM</span>
+
+<span class="n">edges</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">GraphM</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">is_directed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
+
+<span class="n">tlist</span> <span class="o">=</span> <span class="n">dfs</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tlist</span><span class="p">)</span>
+<span class="n">example_dfs</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "689d0aaca3eb4bc3bcecdfce4a02fa3d"}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type = GraphM
+</pre></div>
+</div>
+<img alt="../_images/cb1857b571b7fc9143bfdea7cdc2143fe38ebdbc2f90faf06d284c3a0e18f460.png" src="../_images/cb1857b571b7fc9143bfdea7cdc2143fe38ebdbc2f90faf06d284c3a0e18f460.png" />
 </div>
 </div>
 </section>
