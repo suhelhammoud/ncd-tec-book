@@ -4,13 +4,13 @@ title                     : National Center for the Distinguished, Tec Book
 author                    : Tec Teachers
 copyright                 : "2024"
 logo                      : logo.png
-exclude_patterns          : ["force"]
+exclude_patterns          : ["cache"]
 
 # Execution settings
 # more at https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks       : "force"
-  cache                   : "force"
+  execute_notebooks       : "cache"
+  cache                   : "cache"
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -45,3 +45,5 @@ html:
 # Open in google colab
 launch_buttons:
   colab_url               : "https://colab.research.google.com"
+  binderhub_url           : "https://mybinder.org"
+  # binderhub_url           : "https://hub.ovh2.mybinder.org/user/suhelhammoud-ncd-tec-book-vllm8xlh/lab"

@@ -31,3 +31,6 @@ twine upload --repository testpypi dist/*
 pip install -i https://test.pypi.org/simple/ ncdtecbook
 ```
 
+
+### binder
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/suhelhammoud/ncd-tec-book/main)
