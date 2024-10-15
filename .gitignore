@@ -102,8 +102,15 @@ Thumbs.db
 # Content generated during notebook execution
 
 # build packages
-dist/*
+dist/
 
 # more
 */__pycache__/*
 
+
+# environment variables
+.env
+/.evn
+
+# no link files of ncdtecbook library
+book/1-information-technology/ncdtecbook 

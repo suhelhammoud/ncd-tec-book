@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ncdtecbook2"
-version = "0.0.1"
+name = "ncdtecbook"
+version = "0.0.1.00"
 authors = [
   { name="Suhel Hammoud", email="suhel.hammoud@gmail.com" },
 ]
@@ -23,4 +23,4 @@ Issues = "https://github.com/suhelhammoud/ncd-tec-book/issues"
 
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/ncdtecbook2"]
+packages = ["src/ncdtecbook"]

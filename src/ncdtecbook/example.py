@@ -5,7 +5,11 @@ from IPython.display import display
 
 
 
-
+def stack_vis_example(stack):
+    btn = widgets.Button(description="Show stack")
+    btn.on_click(lambda b: StackDisplay(stack).show()  )
+    display(btn)
+    
 
 class StackDisplay():
     def __init__(self, stack):
