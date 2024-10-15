@@ -203,10 +203,6 @@ def dfs(graph, start_vertex, visited=None):
 
     # Mark the start vertex as visited and display it
     visited.append(start_vertex)
-<<<<<<< HEAD
-=======
-    print(f"Visited: {start_vertex}")
->>>>>>> refs/remotes/origin/main
 
     # Use the neighbors_of method to get the neighbors
     for neighbor, _ in graph.neighbors_of(start_vertex):
