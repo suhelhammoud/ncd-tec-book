@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ncdtecbook"
-version = "0.0.1.00"
+version = "0.0.1.2"
 authors = [
   { name="Suhel Hammoud", email="suhel.hammoud@gmail.com" },
 ]
