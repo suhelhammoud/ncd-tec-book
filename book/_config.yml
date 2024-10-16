@@ -45,5 +45,5 @@ html:
 # Open in google colab
 launch_buttons:
   colab_url               : "https://colab.research.google.com"
-  binderhub_url           : "https://mybinder.org"
-  # binderhub_url           : "https://hub.ovh2.mybinder.org/user/suhelhammoud-ncd-tec-book-vllm8xlh/lab"
+  binderhub_url           : "https://hub.ovh2.mybinder.org/user/suhelhammoud-ncd-tec-book-vllm8xlh/lab"
+  # binderhub_url           : "https://mybinder.org"
