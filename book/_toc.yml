@@ -24,6 +24,13 @@ parts:
 
       - file: 1-information-technology/101-graphs
 
+  - caption: Level 12, Term 1
+    maxdepth: 3
+    numbered: false
+    chapters:
+      - file: 5-information-security/510-RC4
+        title: RC4 Encryption
+
   # - caption: Level 11, Term 2
 
   # - caption: Level 12, Term 1
